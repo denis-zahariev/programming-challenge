@@ -8,9 +8,9 @@ public class DayAnalysisTest {
 
     @Test
     void testDayAnalysis() {
-        DayAnalaysis dayAnalaysis = new DayAnalaysis();
-        dayAnalaysis.analyze();
-        assertEquals("14",dayAnalaysis.getResult());
+        DayAnalysis dayAnalysis = new DayAnalysis();
+        dayAnalysis.analyze();
+        assertEquals("14", dayAnalysis.getResult());
     }
 
 }

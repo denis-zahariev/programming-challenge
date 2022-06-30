@@ -1,6 +1,6 @@
 package de.exxcellent.challenge;
 
-public class DayAnalaysis {
+public class DayAnalysis {
 
     public void analyze(){
 
