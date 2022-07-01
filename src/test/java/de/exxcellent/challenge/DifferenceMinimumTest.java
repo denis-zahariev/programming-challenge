@@ -12,20 +12,20 @@ class DifferenceMinimumTest {
 
     @BeforeEach
     void setUp() {
-        differenceMinimum=new DifferenceMinimum();
+        differenceMinimum = new DifferenceMinimum();
 
     }
 
     @Test
     void testUpdateAndResult() {
-        differenceMinimum.update("testIdentifier",15,5);
-        assertEquals("testIdentifier",differenceMinimum.getResult());
+        differenceMinimum.update("testIdentifier", 15, 5);
+        assertEquals("testIdentifier", differenceMinimum.getResult());
 
-        differenceMinimum.update("testIdentifierTwo",20,15);
-        assertEquals("testIdentifierTwo",differenceMinimum.getResult());
+        differenceMinimum.update("testIdentifierTwo", 20, 15);
+        assertEquals("testIdentifierTwo", differenceMinimum.getResult());
 
-        differenceMinimum.update("testIdentifierThree",20,25);
-        assertEquals("testIdentifierThree",differenceMinimum.getResult());
+        differenceMinimum.update("testIdentifierThree", 20, 25);
+        assertEquals("testIdentifierThree", differenceMinimum.getResult());
 
     }
 

@@ -7,15 +7,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CSVFileReaderTest {
 
-    private CSVFileReader csvFileReader;
+    private CSVFileReader csvFileReaderWeather;
+    private CSVFileReader csvFileReaderFootball;
 
     @BeforeEach
     void setUp() {
-        csvFileReader = new CSVFileReader("src/main/resources/de/exxcellent/challenge/weather.csv");
+        csvFileReaderWeather = new CSVFileReader("src/main/resources/de/exxcellent/challenge/weather.csv");
+        csvFileReaderFootball = new CSVFileReader("src/main/resources/de/exxcellent/challenge/football.csv");
+
     }
 
     @Test
     void readAndAnalyze() {
-        assertEquals("14", csvFileReader.readAndAnalyze("MxT", "MnT", new DifferenceMinimum()));
+        assertEquals("14", csvFileReaderWeather.readAndAnalyze("MxT", "MnT", new DifferenceMinimum()));
+        assertEquals("Aston_Villa", csvFileReaderFootball.readAndAnalyze("Goals", "Goals Allowed", new AbsoluteDifferenceMinimum()));
     }
 }

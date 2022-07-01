@@ -17,14 +17,17 @@ public final class App {
 
         // Your preparation code …
 
-        DayAnalysis dayAnalysis=new DayAnalysis("src/main/resources/de/exxcellent/challenge/weather.csv");
+        TableAnalysis dayAnalysis = new TableAnalysis("src/main/resources/de/exxcellent/challenge/weather.csv");
         dayAnalysis.analyze("MxT", "MnT", new DifferenceMinimum());
-
 
         String dayWithSmallestTempSpread = dayAnalysis.getResult();     // Your day analysis function call …
         System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
 
-        String teamWithSmallestGoalSpread = "A good team"; // Your goal analysis function call …
+
+        TableAnalysis footballAnalysis = new TableAnalysis("src/main/resources/de/exxcellent/challenge/football.csv");
+        footballAnalysis.analyze("Goals", "Goals Allowed", new AbsoluteDifferenceMinimum());
+
+        String teamWithSmallestGoalSpread = footballAnalysis.getResult(); // Your goal analysis function call …
         System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallestGoalSpread);
     }
 }
