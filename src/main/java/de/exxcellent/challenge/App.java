@@ -10,13 +10,18 @@ public final class App {
 
     /**
      * This is the main entry method of your program.
+     *
      * @param args The CLI arguments passed
      */
     public static void main(String... args) {
 
         // Your preparation code …
 
-        String dayWithSmallestTempSpread = "Someday";     // Your day analysis function call …
+        DayAnalysis dayAnalysis=new DayAnalysis("src/main/resources/de/exxcellent/challenge/weather.csv");
+        dayAnalysis.analyze("MxT", "MnT", new DifferenceMinimum());
+
+
+        String dayWithSmallestTempSpread = dayAnalysis.getResult();     // Your day analysis function call …
         System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
 
         String teamWithSmallestGoalSpread = "A good team"; // Your goal analysis function call …
