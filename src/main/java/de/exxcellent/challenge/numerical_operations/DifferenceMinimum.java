@@ -1,9 +1,11 @@
-package de.exxcellent.challenge;
+package de.exxcellent.challenge.numerical_operations;
 
 /**
- * A class used to hold the current absolute difference minimum between the values in two columns.
+ * A class used to hold the current difference minimum between the values in two columns.
+ *
+ * @author Denis Zahariev <denis.zahariev95@gmail.com>
  */
-public class AbsoluteDifferenceMinimum implements NumericalOperation {
+public class DifferenceMinimum implements INumericalOperation {
 
     private String identifier;
     private int currentMin;
@@ -11,7 +13,7 @@ public class AbsoluteDifferenceMinimum implements NumericalOperation {
     /**
      * Instantiates the object with default values.
      */
-    public AbsoluteDifferenceMinimum() {
+    public DifferenceMinimum() {
         this.identifier = null;
         this.currentMin = Integer.MAX_VALUE;
     }
@@ -25,8 +27,8 @@ public class AbsoluteDifferenceMinimum implements NumericalOperation {
      */
     @Override
     public void update(String identifier, int columnOneValue, int columnTwoValue) {
-        if (Math.abs(columnOneValue - columnTwoValue) < currentMin) {
-            this.currentMin = Math.abs(columnOneValue - columnTwoValue);
+        if (columnOneValue - columnTwoValue < currentMin) {
+            this.currentMin = columnOneValue - columnTwoValue;
             this.identifier = identifier;
         }
     }
@@ -35,4 +37,5 @@ public class AbsoluteDifferenceMinimum implements NumericalOperation {
     public String getResult() {
         return this.identifier;
     }
+
 }

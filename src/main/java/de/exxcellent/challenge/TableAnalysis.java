@@ -1,8 +1,13 @@
 package de.exxcellent.challenge;
 
+import de.exxcellent.challenge.numerical_operations.INumericalOperation;
+import de.exxcellent.challenge.readers.CSVFileReader;
+import de.exxcellent.challenge.readers.IReader;
 
 /**
  * A class responsible for initiating the day analysis.
+ *
+ * @author Denis Zahariev <denis.zahariev95@gmail.com>
  */
 public class TableAnalysis {
 
@@ -17,13 +22,13 @@ public class TableAnalysis {
     /**
      * Instantiates a CSVFileReader, reads the CSV, and calculates the result.
      *
-     * @param column1            name of the first column
-     * @param column2            name of the second column
-     * @param numericalOperation the mathematical operation used in the analysis
+     * @param column1             name of the first column
+     * @param column2             name of the second column
+     * @param INumericalOperation the mathematical operation used in the analysis
      */
-    public void analyze(String column1, String column2, NumericalOperation numericalOperation) {
-        CSVFileReader csvFileReader = new CSVFileReader(this.tablePath);
-        this.result = csvFileReader.readAndAnalyze(column1, column2, numericalOperation);
+    public void analyze(String column1, String column2, INumericalOperation INumericalOperation) {
+        IReader csvFileReader = new CSVFileReader(this.tablePath);
+        this.result = csvFileReader.readAndAnalyze(column1, column2, INumericalOperation);
     }
 
     public String getResult() {

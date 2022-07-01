@@ -1,5 +1,8 @@
 package de.exxcellent.challenge;
 
+import de.exxcellent.challenge.numerical_operations.AbsoluteDifferenceMinimum;
+import de.exxcellent.challenge.numerical_operations.DifferenceMinimum;
+import de.exxcellent.challenge.readers.CSVFileReader;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
