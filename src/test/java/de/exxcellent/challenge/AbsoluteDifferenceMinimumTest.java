@@ -26,10 +26,10 @@ class AbsoluteDifferenceMinimumTest {
         absoluteDifferenceMinimum.update("testIdentifierThree", -20, 20);
         assertEquals("testIdentifierThree", absoluteDifferenceMinimum.getResult());
 
-        absoluteDifferenceMinimum.update("testIdentifierThree", -20, -10);
+        absoluteDifferenceMinimum.update("testIdentifierFour", -20, -10);
         assertEquals("testIdentifierFour", absoluteDifferenceMinimum.getResult());
 
-        absoluteDifferenceMinimum.update("testIdentifierThree", -1, 1);
+        absoluteDifferenceMinimum.update("testIdentifierFive", -1, 1);
         assertEquals("testIdentifierFive", absoluteDifferenceMinimum.getResult());
 
 
