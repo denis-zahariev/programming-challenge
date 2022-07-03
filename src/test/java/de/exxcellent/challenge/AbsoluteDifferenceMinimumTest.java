@@ -1,6 +1,6 @@
 package de.exxcellent.challenge;
 
-import de.exxcellent.challenge.numerical_operations.AbsoluteDifferenceMinimum;
+import de.exxcellent.challenge.value_search.AbsoluteDifferenceMinimum;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -32,7 +32,5 @@ class AbsoluteDifferenceMinimumTest {
 
         absoluteDifferenceMinimum.update("testIdentifierFive", -1, 1);
         assertEquals("testIdentifierFive", absoluteDifferenceMinimum.getResult());
-
-
     }
 }

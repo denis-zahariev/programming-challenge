@@ -1,11 +1,11 @@
-package de.exxcellent.challenge.numerical_operations;
+package de.exxcellent.challenge.value_search;
 
 /**
  * An interface for the numerical operations that are performed on the CSV data.
  *
  * @author Denis Zahariev <denis.zahariev95@gmail.com>
  */
-public interface INumericalOperation {
+public interface IValueSearch {
 
     /**
      * Used to perform an operation on two values of a table row.

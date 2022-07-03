@@ -1,3 +1,30 @@
+= Solution of the challenge
+
+The solution is as simplistic as possible while also trying
+to comply to the best design practices. A UML Class Diagram depicting
+all implemented classes and interfaces is shown below.
+
+image:ClassDiagram.png[Class Diagram]
+
+The `App` class is the entrypoint of the application and is used to run it.
+The `IAnalysis` interfaces defines what an analysis does and can be implemented
+by other classes. Currently only the ``TableAnalysis`` implements the interface
+for the purpose of analyzing tables, however, further classes for other types of
+analysis, for example JSON files, can be easily added.
+The ``IReader`` interfaces defines the functionality of the readers. Currently,
+there is only a CSV file reader, but additional ones can be easily added.
+The ``IValueSearch`` defines common behavior used by the classes responsible for the
+search of the respective values. Currently, two types of search are supported, one for
+the lowest difference between two values, and another one for the lowest absolute difference.
+Further documentation is provided in the comments of the respective classes and methods.
+
+== How to build and run the code
+
+Follow the instructions at the bottom of this document.
+
+
+'''
+
 = eXXcellent programming challenge
 
 This repository provides the project scaffold for a simple
@@ -6,8 +33,8 @@ and a rather synthetic use-case, your results are a helpful
 starting point to discuss your programming flavor, skills
 and methodology.
 
-**BEFORE STARTING:** Please take the time and read this 
-document completely and carefully! It describes important 
+**BEFORE STARTING:** Please take the time and read this
+document completely and carefully! It describes important
 parts of the challenge.
 
 
@@ -20,7 +47,7 @@ Implement a solution for the given tasks which aims for
 * clean software design & architecture
 
 Be prepared to discuss your implementation and software design
-decisions. Show us how you would solve the task when working on your day-to-day 
+decisions. Show us how you would solve the task when working on your day-to-day
 job.
 
 Feel free to come up with own ideas & solutions. There is no plain
@@ -56,13 +83,13 @@ Football::
     distance (absolute difference) between ‘Goals’ and ‘Goals Allowed’.
 
 Task::
-    1. Try to write a single program, which is able to solve the "Weather" 
-       challenge. 
+    1. Try to write a single program, which is able to solve the "Weather"
+       challenge.
     2. Then try to refactor & extend your solution, that it additionally
-       supports the Football challenge. 
+       supports the Football challenge.
 
 Process::
-* Favour the software design goals described under _Goal_ over other goals 
+* Favour the software design goals described under _Goal_ over other goals
   like _performance_ or _feature set_.
 * Try to follow a test-driven development approach.
 

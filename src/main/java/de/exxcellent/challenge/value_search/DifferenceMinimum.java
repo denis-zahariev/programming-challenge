@@ -1,11 +1,11 @@
-package de.exxcellent.challenge.numerical_operations;
+package de.exxcellent.challenge.value_search;
 
 /**
- * A class used to hold the current absolute difference minimum between the values in two columns.
+ * A class used to hold the current difference minimum between the values in two columns.
  *
  * @author Denis Zahariev <denis.zahariev95@gmail.com>
  */
-public class AbsoluteDifferenceMinimum implements INumericalOperation {
+public class DifferenceMinimum implements IValueSearch {
 
     private String identifier;
     private int currentMin;
@@ -13,13 +13,13 @@ public class AbsoluteDifferenceMinimum implements INumericalOperation {
     /**
      * Instantiates the object with default values.
      */
-    public AbsoluteDifferenceMinimum() {
+    public DifferenceMinimum() {
         this.identifier = null;
         this.currentMin = Integer.MAX_VALUE;
     }
 
     /**
-     * If the method encounters a smaller absolute difference, it updates the current minimum and the identifier.
+     * If the method encounters a smaller difference, it updates the current minimum and the identifier.
      *
      * @param identifier     identifier of the table row, e.g. day or football team
      * @param columnOneValue value in the first column
@@ -27,8 +27,8 @@ public class AbsoluteDifferenceMinimum implements INumericalOperation {
      */
     @Override
     public void update(String identifier, int columnOneValue, int columnTwoValue) {
-        if (Math.abs(columnOneValue - columnTwoValue) < currentMin) {
-            this.currentMin = Math.abs(columnOneValue - columnTwoValue);
+        if (columnOneValue - columnTwoValue < currentMin) {
+            this.currentMin = columnOneValue - columnTwoValue;
             this.identifier = identifier;
         }
     }
@@ -37,4 +37,5 @@ public class AbsoluteDifferenceMinimum implements INumericalOperation {
     public String getResult() {
         return this.identifier;
     }
+
 }

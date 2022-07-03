@@ -2,7 +2,7 @@ package de.exxcellent.challenge.readers;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
-import de.exxcellent.challenge.numerical_operations.INumericalOperation;
+import de.exxcellent.challenge.value_search.IValueSearch;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -24,12 +24,12 @@ public class CSVFileReader implements IReader {
     /**
      * Reads the values in the two columns of the CSV file and applies the difference minimum function to these.
      *
-     * @param columnOneName       name of the first column
-     * @param columnTwoName       name of the second column
-     * @param INumericalOperation an instance of the numerical operation
+     * @param columnOneName name of the first column
+     * @param columnTwoName name of the second column
+     * @param IValueSearch  an instance of the numerical operation
      * @return the result of the numerical analysis after the table is analyzed
      */
-    public String readAndAnalyze(String columnOneName, String columnTwoName, INumericalOperation INumericalOperation) {
+    public String readAndAnalyze(String columnOneName, String columnTwoName, IValueSearch IValueSearch) {
         try (CSVReader reader = new CSVReader(new FileReader(this.pathToFile))) {
 
             //get the positions of the columns
@@ -39,10 +39,10 @@ public class CSVFileReader implements IReader {
 
             String[] tableLine;
             while ((tableLine = reader.readNext()) != null) {
-                INumericalOperation.update(tableLine[0], Integer.parseInt(tableLine[columnOneIndex]), Integer.parseInt(tableLine[columnTwoIndex]));
+                IValueSearch.update(tableLine[0], Integer.parseInt(tableLine[columnOneIndex]), Integer.parseInt(tableLine[columnTwoIndex]));
             }
 
-            return INumericalOperation.getResult();
+            return IValueSearch.getResult();
 
         } catch (IOException | CsvValidationException e) {
             e.printStackTrace();

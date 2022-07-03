@@ -1,7 +1,10 @@
 package de.exxcellent.challenge;
 
-import de.exxcellent.challenge.numerical_operations.AbsoluteDifferenceMinimum;
-import de.exxcellent.challenge.numerical_operations.DifferenceMinimum;
+import de.exxcellent.challenge.analysis.IAnalysis;
+import de.exxcellent.challenge.analysis.TableAnalysis;
+import de.exxcellent.challenge.value_search.AbsoluteDifferenceMinimum;
+import de.exxcellent.challenge.value_search.DifferenceMinimum;
+import de.exxcellent.challenge.readers.CSVFileReader;
 
 /**
  * The entry class for your solution. This class is only aimed as starting point and not intended as baseline for your software
@@ -10,7 +13,7 @@ import de.exxcellent.challenge.numerical_operations.DifferenceMinimum;
  * @author Benjamin Schmid <benjamin.schmid@exxcellent.de>
  * @author Denis Zahariev <denis.zahariev95@gmail.com>
  */
-public final class App {
+public class App {
 
     /**
      * This is the main entry method of your program.
@@ -21,14 +24,17 @@ public final class App {
 
         // Your preparation code …
 
-        TableAnalysis dayAnalysis = new TableAnalysis("src/main/resources/de/exxcellent/challenge/weather.csv");
+        String weatherCSVPath = "src/main/resources/de/exxcellent/challenge/weather.csv";
+        String footballCSVPath = "src/main/resources/de/exxcellent/challenge/football.csv";
+
+        IAnalysis dayAnalysis = new TableAnalysis(new CSVFileReader(weatherCSVPath));
         dayAnalysis.analyze("MxT", "MnT", new DifferenceMinimum());
 
         String dayWithSmallestTempSpread = dayAnalysis.getResult();     // Your day analysis function call …
         System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
 
 
-        TableAnalysis footballAnalysis = new TableAnalysis("src/main/resources/de/exxcellent/challenge/football.csv");
+        IAnalysis footballAnalysis = new TableAnalysis(new CSVFileReader(footballCSVPath));
         footballAnalysis.analyze("Goals", "Goals Allowed", new AbsoluteDifferenceMinimum());
 
         String teamWithSmallestGoalSpread = footballAnalysis.getResult(); // Your goal analysis function call …

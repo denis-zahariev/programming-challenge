@@ -1,6 +1,6 @@
 package de.exxcellent.challenge.readers;
 
-import de.exxcellent.challenge.numerical_operations.INumericalOperation;
+import de.exxcellent.challenge.value_search.IValueSearch;
 
 /**
  * An interface defining the methods of the readers.
@@ -15,9 +15,9 @@ public interface IReader {
      *
      * @param fieldOneName        column name of the first value in case of CSV, field name of the first value in case of JSON
      * @param fieldTwoName        column name of the second value in case of CSV, field name of the second value in case of JSON
-     * @param INumericalOperation the numerical operation that will be used for the analysis of the two values
+     * @param IValueSearch the numerical operation that will be used for the analysis of the two values
      * @return
      */
-    String readAndAnalyze(String fieldOneName, String fieldTwoName, INumericalOperation INumericalOperation);
+    String readAndAnalyze(String fieldOneName, String fieldTwoName, IValueSearch IValueSearch);
 
 }
